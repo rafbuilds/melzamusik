@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yohanes Tri Fajar - Portfolio Musik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #ffd700;
+        --secondary: #ff6b35;
+        --accent: #00d9ff;
+        --dark: #1a1a1a;
+        --darker: #0f0f0f;
+        --light: #ffffff;
+        --gray: #888;
+      }
+
+      body {
+        font-family: "Rajdhani", sans-serif;
+        background: var(--darker);
+        color: var(--light);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Dotted Background Pattern */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Section Frame */
+      .section-frame {
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        padding: 0.5rem;
+        margin-bottom: 3rem;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .section-title {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 1rem;
+        margin-bottom: 0;
+      }
+
+      /* Portfolio Header */
+      .portfolio-header {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 3rem;
+        padding: 3rem;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 60, 90, 0.4),
+          rgba(60, 40, 80, 0.4)
+        );
+        border-radius: 45px;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 450px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .profile-image::after {
+        position: absolute;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      .profile-content h1 {
+        font-family: "Teko", sans-serif;
+        font-size: 5rem;
+        line-height: 0.9;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #ffd700, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .profile-content h2 {
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+
+      .profile-content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .contact-item h4 {
+        color: var(--primary);
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+        letter-spacing: 2px;
+      }
+
+      .contact-item p {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .contact-item a {
+        color: var(--light);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-item a:hover {
+        color: var(--primary);
+      }
+
+      /* CTA Buttons Section */
+      .cta-section {
+        padding: 3rem;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.2),
+          rgba(255, 215, 0, 0.2)
+        );
+        border-radius: 45px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .cta-btn {
+        padding: 1.5rem 3rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-decoration: none;
+        display: inline-block;
+        font-family: "Teko", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .cta-btn:hover::before {
+        left: 100%;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #ffd700, #ffa500);
+        color: var(--darker);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+      }
+
+      .cta-primary:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+      }
+
+      .cta-secondary {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+      }
+
+      .cta-secondary:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+      }
+
+      /* Music Instruments Section */
+      .instruments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 3rem;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 217, 255, 0.1),
+          rgba(107, 207, 244, 0.1)
+        );
+        border-radius: 45px;
+      }
+
+      .instrument-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .instrument-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+      }
+
+      .instrument-image {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        position: relative;
+      }
+
+      .instrument-image::after {
+        content: attr(data-placeholder);
+        position: absolute;
+        bottom: 10px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      .instrument-name {
+        padding: 1.5rem;
+        text-align: center;
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      /* Bands Showcase */
+      .bands-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 3rem;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.1),
+          rgba(247, 147, 30, 0.1)
+        );
+        border-radius: 45px;
+      }
+
+      .band-card {
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .band-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 215, 0, 0.1),
+          rgba(255, 107, 53, 0.1)
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .band-card:hover::before {
+        opacity: 1;
+      }
+
+      .band-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+      }
+
+      .band-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      .band-name {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        letter-spacing: 3px;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #ffd700, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 1;
+      }
+
+      .band-type {
+        color: var(--accent);
+        font-size: 1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .band-description {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        font-size: 1.1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .portfolio-header {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .profile-image {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .profile-content h1 {
+          font-size: 3rem;
+        }
+
+        .profile-content h2 {
+          font-size: 1.3rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .cta-btn {
+          width: 100%;
+        }
+
+        .instruments-grid,
+        .bands-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Decorative Lines */
+      .decorative-line {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary),
+          transparent
+        );
+        margin: 2rem auto;
+      }
+
+      /* Band Logos */
+      .band-logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+        z-index: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        transition: all 0.4s ease;
+      }
+
+      .band-logo.rcp {
+        border-color: var(--primary);
+        background: linear-gradient(135deg, #ffd700, #ff6b35);
+      }
+
+      .band-logo.stacato {
+        border-color: var(--accent);
+        background: linear-gradient(135deg, #00d9ff, #4ecdc4);
+      }
+
+      .band-logo.organ {
+        border-color: #ffd93d;
+        background: linear-gradient(135deg, #ffd93d, #6bcf7f);
+      }
+
+      .band-logo:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+      }
+
+      .band-logo img {
+        width: 100%;
+        height: 110%;
+        object-fit: cover;
+      }
+
+      .band-logo::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0rem;
+        font-size: 0.7rem;
+        text-align: center;
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      /* Clickable Card Effect */
+      .band-card {
+        cursor: pointer;
+      }
+
+      .band-card::after {
+        content: "👆 Klik untuk lihat galeri";
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        color: var(--primary);
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 2;
+      }
+
+      .band-card:hover::after {
+        opacity: 1;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        overflow-y: auto;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 30, 30, 0.98),
+          rgba(50, 50, 50, 0.98)
+        );
+        border: 3px solid rgba(255, 215, 0, 0.5);
+        border-radius: 30px;
+        padding: 3rem;
+        max-width: 1200px;
+        width: 100%;
+        position: relative;
+        animation: slideUp 0.4s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 3rem;
+        color: var(--primary);
+        cursor: pointer;
+        transition: all 0.3s;
+        z-index: 10;
+        line-height: 1;
+      }
+
+      .close-modal:hover {
+        transform: rotate(90deg);
+        color: var(--secondary);
+      }
+
+      .modal-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .modal-header h2 {
+        font-family: "Teko", sans-serif;
+        font-size: 4rem;
+        background: linear-gradient(135deg, #ffd700, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .modal-header p {
+        color: var(--accent);
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .gallery-item {
+        aspect-ratio: 4/3;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        transition: transform 0.3s;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
+
+      .gallery-item::after {
+        content: attr(data-caption);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        font-size: 0.9rem;
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        .modal-content {
+          padding: 2rem 1.5rem;
+        }
+
+        .modal-header h2 {
+          font-size: 2.5rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Portfolio Section -->
+      <div class="section-frame fade-in">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-header">
+          <div class="profile-image">
+            <img
+              src="img/foto1.png"
+              alt="Yohanes Tri Fajar"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="profile-content">
+            <h1>YOHANES<br />TRI FAJAR</h1>
+            <h2>Musisi Profesional</h2>
+            <p>
+              Perkenalkan, saya Yohanes Tri Fajar, musisi profesional dengan
+              passion mendalam di dunia musik. Saya adalah founder Melza Music
+              Course di Pati, Jawa Tengah, dan aktif sebagai performer di
+              berbagai band ternama. Memiliki keahlian dalam bermain berbagai
+              alat musik dan pengalaman memukau di ratusan acara.
+            </p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <h4>CONTACT PERSON</h4>
+                <p>
+                  <a href="mailto:melzamusic@gmail.com">melzamusic@gmail.com</a>
+                </p>
+                <p><a href="tel:+6289636534010">+62 628-9636-34010</a></p>
+              </div>
+              <div class="contact-item">
+                <h4>MORE INFORMATION</h4>
+                <p>
+                  <a
+                    href="https://instagram.com/yohanestrijajar"
+                    target="_blank"
+                    >Instagram: @yohanestrijajar</a
+                  >
+                </p>
+                <p>Pati, Jawa Tengah</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="section-frame reveal">
+        <div class="cta-section">
+          <h3
+            style="
+              font-family: &quot;Teko&quot;, sans-serif;
+              font-size: 2.5rem;
+              letter-spacing: 3px;
+              margin-bottom: 1rem;
+            "
+          >
+            SIAP MEMULAI PERJALANAN MUSIK ANDA?
+          </h3>
+          <p
+            style="
+              font-size: 1.2rem;
+              color: rgba(255, 255, 255, 0.8);
+              margin-bottom: 2rem;
+            "
+          >
+            Daftar kursus musik atau booking band kami untuk acara spesial Anda!
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="https://wa.me/6289636534010?text=Halo%20saya%20ingin%20daftar%20les%20musik%20di%20Melza%20Music"
+              class="cta-btn cta-primary"
+            >
+              🎹 DAFTAR LES MUSIK
+            </a>
+            <a
+              href="https://wa.me/6289636534010?text=Halo%20saya%20ingin%20booking%20band%20untuk%20acara"
+              class="cta-btn cta-secondary"
+            >
+              🎸 BOOKING BAND
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Music Instruments -->
+      <div class="section-frame reveal">
+        <h2 class="section-title">Keahlian Musik</h2>
+        <div class="instruments-grid">
+          <div class="instrument-card">
+            <div class="instrument-image">
+              <img
+                src="img/foto1.png"
+                alt="Piano"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="instrument-name">PIANO / KEYBOARD</div>
+          </div>
+          <div class="instrument-card">
+            <div class="instrument-image">
+              <img
+                src="img/foto1.png"
+                alt="Guitar"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="instrument-name">GITAR</div>
+          </div>
+          <div class="instrument-card">
+            <div class="instrument-image">
+              <img
+                src="img/foto1.png"
+                alt="Drum"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="instrument-name">DRUM</div>
+          </div>
+          <div class="instrument-card">
+            <div class="instrument-image">
+              <img
+                src="img/foto1.png"
+                alt="Vocal"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="instrument-name">VOKAL</div>
+          </div>
+          <div class="instrument-card">
+            <div class="instrument-image">
+              <img
+                src="img/foto1.png"
+                alt="Bass"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="instrument-name">BASS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bands -->
+      <!-- Bands -->
+      <div class="section-frame reveal">
+        <h2 class="section-title">Band & Entertainment</h2>
+        <div class="bands-grid">
+          <div class="band-card" onclick="openModal('rcp')">
+            <div class="band-logo rcp">
+              <img src="img/rcp.jpg" alt="Yohanes Tri Fajar - RCP" />
+            </div>
+            <div class="band-name">RCP</div>
+            <div class="band-type">Red Carpet Hotel</div>
+            <p class="band-description">
+              Band terkenal di Pati dengan pengalaman memukau di berbagai acara
+              besar. Spesialisasi wedding & corporate events dengan repertoar
+              lagu hits dan klasik yang lengkap.
+            </p>
+          </div>
+
+          <div class="band-card" onclick="openModal('stacato')">
+            <div class="band-logo stacato">
+              <img src="img/stacato.png" alt="Yohanes Tri Fajar - STACATO" />
+            </div>
+            <div class="band-name">STACATO</div>
+            <div class="band-type">Live Performance Band</div>
+            <p class="band-description">
+              Energik, dinamis, dan penuh gaya! STACATO hadir dengan performa
+              yang mengguncang dan siap membuat acara Anda jadi lebih berkesan
+              dengan musik berkualitas tinggi.
+            </p>
+          </div>
+
+          <div class="band-card" onclick="openModal('organ')">
+            <div class="band-logo organ">
+              <img
+                src="img/melza.jpg"
+                alt="Yohanes Tri Fajar - Organ Tunggal"
+              />
+            </div>
+            <div class="band-name">ORGAN TUNGGAL</div>
+            <div class="band-type">Solo Performance</div>
+            <p class="band-description">
+              Performance solo organ tunggal oleh Yohanes Tri Fajar. Cocok untuk
+              acara intimate, gathering keluarga, atau event yang membutuhkan
+              sentuhan musik personal dan menyentuh hati.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Galleries -->
+      <div id="modal-rcp" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" onclick="closeModal('rcp')">&times;</span>
+          <div class="modal-header">
+            <h2>RCP - Red Carpet Hotel</h2>
+            <p>Wedding & Corporate Events Gallery</p>
+          </div>
+          <div class="gallery-grid">
+            <div
+              class="gallery-item"
+              data-caption="Wedding Performance - Grand Ballroom"
+            >
+              🎸
+              <!-- Ganti dengan: <img src="rcp-wedding-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div
+              class="gallery-item"
+              data-caption="Live at Outdoor Wedding Reception"
+            >
+              🎤
+              <!-- Ganti dengan: <img src="rcp-wedding-2.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div
+              class="gallery-item"
+              data-caption="Corporate Event Entertainment"
+            >
+              🎹
+              <!-- Ganti dengan: <img src="rcp-corporate-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Wedding Ceremony Music">
+              🎵
+              <!-- Ganti dengan: <img src="rcp-wedding-3.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div
+              class="gallery-item"
+              data-caption="Romantic Evening Performance"
+            >
+              💒
+              <!-- Ganti dengan: <img src="rcp-wedding-4.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Band Setup & Sound Check">
+              🎧
+              <!-- Ganti dengan: <img src="rcp-setup.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-stacato" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" onclick="closeModal('stacato')"
+            >&times;</span
+          >
+          <div class="modal-header">
+            <h2>STACATO</h2>
+            <p>Live Performance Gallery</p>
+          </div>
+          <div class="gallery-grid">
+            <div
+              class="gallery-item"
+              data-caption="Energetic Stage Performance"
+            >
+              ⚡
+              <!-- Ganti dengan: <img src="stacato-stage-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Wedding Party Celebration">
+              🎊
+              <!-- Ganti dengan: <img src="stacato-wedding-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Dynamic Band Performance">
+              🎸
+              <!-- Ganti dengan: <img src="stacato-band.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Crowd Engagement Moment">
+              👏
+              <!-- Ganti dengan: <img src="stacato-crowd.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div
+              class="gallery-item"
+              data-caption="Special Event Entertainment"
+            >
+              🌟
+              <!-- Ganti dengan: <img src="stacato-event.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Professional Setup">
+              🎛️
+              <!-- Ganti dengan: <img src="stacato-setup.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-organ" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" onclick="closeModal('organ')">&times;</span>
+          <div class="modal-header">
+            <h2>ORGAN TUNGGAL</h2>
+            <p>Solo Performance by Yohanes Tri Fajar</p>
+          </div>
+          <div class="gallery-grid">
+            <div
+              class="gallery-item"
+              data-caption="Intimate Wedding Performance"
+            >
+              🎹
+              <!-- Ganti dengan: <img src="organ-wedding-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div
+              class="gallery-item"
+              data-caption="Family Gathering Entertainment"
+            >
+              👨‍👩‍👧‍👦
+              <!-- Ganti dengan: <img src="organ-family.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Solo Keyboard Performance">
+              🎼
+              <!-- Ganti dengan: <img src="organ-solo-1.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Outdoor Event Music">
+              🌅
+              <!-- Ganti dengan: <img src="organ-outdoor.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Personal Touch Performance">
+              💫
+              <!-- Ganti dengan: <img src="organ-perform.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+            <div class="gallery-item" data-caption="Professional Solo Setup">
+              🎚️
+              <!-- Ganti dengan: <img src="organ-setup.jpg" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Melza Music Course -->
+      <div class="section-frame reveal">
+        <h2 class="section-title">Melza Music Course</h2>
+        <div class="cta-section">
+          <div class="decorative-line"></div>
+          <h3
+            style="
+              font-family: &quot;Teko&quot;, sans-serif;
+              font-size: 2.5rem;
+              letter-spacing: 3px;
+              margin-bottom: 1rem;
+            "
+          >
+            KURSUS MUSIK PROFESIONAL
+          </h3>
+          <p
+            style="
+              font-size: 1.2rem;
+              line-height: 1.8;
+              color: rgba(255, 255, 255, 0.8);
+              max-width: 800px;
+              margin: 0 auto 2rem;
+            "
+          >
+            Belajar musik dengan metode yang menyenangkan dan efektif! Kami
+            menawarkan kursus untuk berbagai instrumen: Piano, Keyboard, Gitar,
+            Drum, Vokal, dan Bass. Cocok untuk semua usia dari anak-anak hingga
+            dewasa. Instruktur berpengalaman dan bersertifikat siap membimbing
+            Anda mencapai target musik impian.
+          </p>
+          <div class="decorative-line"></div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 2rem;
+              margin: 3rem 0;
+              max-width: 900px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <div style="text-align: center">
+              <div style="font-size: 3rem; margin-bottom: 0.5rem">🎓</div>
+              <h4
+                style="
+                  color: var(--primary);
+                  font-size: 1.3rem;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Instruktur Profesional
+              </h4>
+              <p style="color: rgba(255, 255, 255, 0.7)">
+                Berpengalaman & Bersertifikat
+              </p>
+            </div>
+            <div style="text-align: center">
+              <div style="font-size: 3rem; margin-bottom: 0.5rem">📚</div>
+              <h4
+                style="
+                  color: var(--primary);
+                  font-size: 1.3rem;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Kurikulum Terstruktur
+              </h4>
+              <p style="color: rgba(255, 255, 255, 0.7)">
+                Metode Pembelajaran Efektif
+              </p>
+            </div>
+            <div style="text-align: center">
+              <div style="font-size: 3rem; margin-bottom: 0.5rem">🏆</div>
+              <h4
+                style="
+                  color: var(--primary);
+                  font-size: 1.3rem;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Semua Level
+              </h4>
+              <p style="color: rgba(255, 255, 255, 0.7)">Pemula hingga Mahir</p>
+            </div>
+          </div>
+          <a
+            href="https://wa.me/6289636534010?text=Halo%20saya%20ingin%20informasi%20lebih%20lanjut%20tentang%20Melza%20Music%20Course"
+            class="cta-btn cta-primary"
+            style="margin-top: 2rem"
+          >
+            💬 HUBUNGI KAMI SEKARANG
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div
+        style="
+          text-align: center;
+          padding: 3rem 0;
+          color: rgba(255, 255, 255, 0.5);
+        "
+      >
+        <div class="decorative-line" style="margin-bottom: 1rem"></div>
+        <p style="font-size: 1.2rem; margin-bottom: 0.5rem">
+          &copy; 2026 Yohanes Tri Fajar - Melza Music & Entertainment
+        </p>
+        <p style="font-size: 1rem">Bringing Music to Life</p>
+      </div>
+    </div>
+
+    <script>
+      // Scroll Reveal Animation
+      const reveals = document.querySelectorAll(".reveal");
+
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach((reveal) => {
+          const elementTop = reveal.getBoundingClientRect().top;
+          const revealPoint = 100;
+
+          if (elementTop < windowHeight - revealPoint) {
+            reveal.classList.add("active");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll(); // Check on load
+
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Modal Functions
+      function openModal(bandId) {
+        const modal = document.getElementById("modal-" + bandId);
+        if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeModal(bandId) {
+        const modal = document.getElementById("modal-" + bandId);
+        if (modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      // Close modal when clicking outside content
+      window.addEventListener("click", function (event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close modal with ESC key
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          document.querySelectorAll(".modal.active").forEach((modal) => {
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
